@@ -18,7 +18,7 @@ const MovieCard = ({ movie, onMovieClick }) => {
 MovieCard.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
-    ImagePath: PropTypes.string.isRequired,
+    Image: PropTypes.string.isRequired,
     Director: PropTypes.string,
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired,
