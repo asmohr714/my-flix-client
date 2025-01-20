@@ -3,6 +3,8 @@ import  MovieCard  from "./../movie-card/MovieCard"
 import  MovieView  from "./../movie-view/MovieView";
 import  LoginView  from "./../login-view/LoginView";
 import  SignupView from "./../Signup-View/SignupView";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -27,7 +29,9 @@ const MainView = () => {
           _id: doc._id,
           Title: doc.Title,
           Director: doc.Director,
-          ImagePath: doc.ImagePath,
+          Image: doc.ImagePath,
+          Genre: doc.Genre,
+      //    Description: doc.Decscription
     }));
      setMovies(moviesFromApi);
     })
@@ -36,43 +40,42 @@ const MainView = () => {
     });
 }, [token]); 
 
-  if (!user) {
     return (
-      <>
+      <Row className="justify-content-md-center">
+        <Col md={12} className="text-center my-3">
+        <h1>MyFlix DB</h1>
+        </Col>
+      {!user ? (
+        <Col md={5}>
         <LoginView onLoggedIn={(user, token) => {
           setUser(user);
-          setToken(token);
-        }} />
-        or
-        <SignupView />
-      </>
-    );
-  }
-
-  if (selectedMovie) {
-    return (
-      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-    );
-  }
-
-  if (movies.length === 0) {
-    return <div>The list is empty!</div>;
-  }
-
- return (
-    <div>
-      {movies.map((movie) => (
+          setToken(token); }} />
+          or
+          <SignupView />
+        </Col>
+        ) : selectedMovie ? (
+          <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+        ): movies.length === 0 ? (
+          <div>The list is empty!</div>
+        ) : (
+          <>
+        {movies.map((movie) => (
+        <Col key={movie._id} md={3}>
         <MovieCard
-          key={movie._id}
           movie={movie}
           onMovieClick={(newSelectedMovie) => {
             setSelectedMovie(newSelectedMovie);
           }}
         />
+        </Col>
       ))}
-      <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
-    </div>
+      <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }} className="log-out-button">
+        Logout
+      </button>
+      </>
+        )}
+    </Row>
   );
-}
+};
 
 export default MainView;
