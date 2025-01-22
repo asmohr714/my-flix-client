@@ -1,12 +1,17 @@
 // import "./../movie-view/Movie-View-Style";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
-const MovieView = ({ movie, onBackClick }) => {
+const MovieView = ({ Movies }) => {
+  const { movieID } = useParams();
+  const movie = Movies.find(movie => movie.id === movieID);
+
     return (
       <Row className="justify-content-md-center mt-5">
         <Col md={6}>
-          <img src={movie.Image} alt={movie.Title} />
+          <img src={movie.ImagePath} alt={movie.Title} />
         </Col>
         <div>
           <span>Title: </span>
@@ -16,12 +21,12 @@ const MovieView = ({ movie, onBackClick }) => {
           <span>Genre: </span>
           <span>{movie.Genre.Name}</span>
         </div>
-        <button onClick={onBackClick}
-        className="back-button"
+        <Link to={'/'}>
+        <button className="back-button">
         style={{ cursor: "pointer"}}
-        >
           Back
         </button>
+        </Link>
       </Row>
     );
   };
