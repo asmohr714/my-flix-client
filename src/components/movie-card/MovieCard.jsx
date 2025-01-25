@@ -1,23 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 
 // The MovieCard function component
 const MovieCard = ({ movie }) => {
   return (
     <Card className="h-100">
-      <Card.Img variant="top" src={movie.ImagePath} />
+      {}
+      <Link to={`/movies/${movie._id}`} style={{ textDecoration: "none" }}>
+      <Card.Img variant="top" src={movie.Image} />
       <Card.Body>
         <Card.Title> {movie.Title}</Card.Title>
         <Card.Text> {movie.Director.Name}</Card.Text>
-        <Link to={`/movies/${movie.Id}`}>
-        <Button variant="link">
-          Open
-        </Button>
-        </Link>
       </Card.Body>
+      </Link>
     </Card>
   );
 };

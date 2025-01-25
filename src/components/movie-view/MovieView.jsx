@@ -1,44 +1,54 @@
-// import "./../movie-view/Movie-View-Style";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import React from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-const MovieView = ({ Movies }) => {
-  const { movieID } = useParams();
-  const movie = Movies.find(movie => movie.id === movieID);
 
-    return (
-      <Row className="justify-content-md-center mt-5">
-        <Col md={6}>
-          <img src={movie.ImagePath} alt={movie.Title} />
-        </Col>
+export const MovieView = ({ movies }) => {
+  const { movieId } = useParams();
+  const movie = movies.find(movie => movie._id === movieId);
+  if (!movie) {
+    return <div>Movie not found</div>;
+  }
+  console.log(movie);
+  return (
+    <div>
+      {movie.Image && (
         <div>
-          <span>Title: </span>
-          <span>{movie.Title}</span>
+          <img className="w-100" src={movie.Image} alt={movie.Title} />
         </div>
-        <div>
-          <span>Genre: </span>
-          <span>{movie.Genre.Name}</span>
-        </div>
+      )}
+      <div>
+        <span>Title: </span>
+        <span>{movie.Title}</span>
+      </div>
+      <div>
+        <span>Director: </span>
+        <span>{movie.Director.Name}</span>
+      </div>
+      <div>
+        <span>Bio: </span>
+        <span>{movie.Director.Bio}</span>
+      </div>
+      <div>
+        <span>Birth: </span>
+        <span>{movie.Director.Birth}</span>
+      </div>
+      <div>
+        <span>Genre: </span>
+        <span>{movie.Genre.Name}</span>
+      </div>
+      <div>
+        <span>Description: </span>
+        <span>{movie.Description}</span>
+      </div>
+      
         <Link to={'/'}>
         <button className="back-button">
-        style={{ cursor: "pointer"}}
           Back
         </button>
         </Link>
-      </Row>
-    );
-  };
+      </div>
+    )}
 
   export default MovieView;
-
- // MovieView.propTypes = {
- //   movie: PropTypes.shape({
-   //   title: PropTypes.string.isRequired,
-     // image: PropTypes.string.isRequired,
-    //  directors: PropTypes.string,
-  //  }).isRequired,
-  //  onMovieClick: PropTypes.func.isRequired,
- // };
 
