@@ -20,9 +20,11 @@ const MainView = () => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
 
+  // Fetch movies from API
+
   useEffect(() => {
 
-    if (!token) return;
+//    if (!token) return;
 
     fetch("https://my-cinema-selector-55c96f84466e.herokuapp.com/movies", {
       headers: { Authorization: 'Bearer $token' },
@@ -48,15 +50,8 @@ const MainView = () => {
     });
 }, [token]); 
 
-  // Login
-//    const handleLoggedIn = (user, token) => {
-//      setUser(user);
-//      setToken(token);
-//      localStorage.setItem("user", JSON.stringify(user));
-//      localStorage.setItem("token", token);
-//  };
-
   // Logout
+
   const handleLoggedOut = () => {
     setUser(null);
     setToken(null);
@@ -64,6 +59,8 @@ const MainView = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
   };
+
+  // Render the UI
 
 return (
 
