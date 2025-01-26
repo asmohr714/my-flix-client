@@ -19,7 +19,8 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        const data = {
+
+        const updatedUser = {
             Username: username,
             Email: email,
             Birthday: birthday
@@ -27,12 +28,19 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
         fetch(`https://my-cinema-selector-55c96f84466e.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
             headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(updatedUser)
         })
-        .then((response) => response.json())
+        .then((response) => {
+            if (response.ok) {
+                alert("Your profile has been updated.");
+                return response.json();
+            } else {
+                throw new Error("Failed to update profile");
+            }
+        })
         .then((data) => {
             console.log("User updated: ", data);
             setUser(data);
@@ -76,26 +84,30 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
                         <Form.Label>Birthday</Form.Label>
                         <Form.Control type="date" value={birthday} onChange={(e) => setBirthday(e.target.value)} />
                     </Form.Group>
-                    <Button variant="primary" type="submit" onClick={handleUpdate}>
-                        Update
-                    </Button>
-                    <Button variant="danger" type="button" onClick={handleDelete}>
-                        Delete Account
-                    </Button>
+                    <div className="mt-3">
+                        <Button variant="primary" type="submit" onClick={handleUpdate}>
+                            Update
+                        </Button>
+                        <Button variant="danger" type="button" onClick={handleDelete} className="ml-2">
+                            Delete Account
+                        </Button>
+                    </div>
                 </Form>
             </Col>
             <Col md={6}>
                 <h3>Favorite Movies</h3>
                 {favoriteMovies.length === 0 ? (
-                    <p>No favorite movies added.</p>
+                    <p>You Have No Favorite Movies</p>
                 ) : (
                     favoriteMovies.map((movie) => (
+                        <Col md={4} key={movie._id}>
                         <MovieCard key={movie._id} movie={movie} />
+                        </Col>
                     ))
                 )}
             </Col>
-            </Row>
-        );
+        </Row>
+    );
     };
 
 export default ProfileView;
