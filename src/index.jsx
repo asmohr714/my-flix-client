@@ -1,3 +1,4 @@
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Container from "react-bootstrap/Container";
 import  MainView  from "./components/main-view/MainView";
