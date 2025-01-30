@@ -11,8 +11,6 @@ import  SignupView from "./../Signup-View/SignupView";
 import  ProfileView from "./../profile-view/ProfileView";
 import  NavigationBar from "../navigation-bar/NavigationBar";
 
-
-
 const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");

@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import "./../movie-view/Movie-View-Style.scss";
 
 // MovieView component 
 
@@ -45,48 +46,49 @@ export const MovieView = ({ movies, user, token, setUser }) => {
   
     return (
       <div>
-        {movie.Image && (
-          <div>
-            <img className="w-50" src={movie.Image} alt={movie.Title} />
-          </div>
-        )}
-        <div>
-          <span>Title: </span>
-          <span>{movie.Title}</span>
-        </div>
-        <div>
-          <span>Director: </span>
-          <span>{movie.Director.Name}</span>
-        </div>
-        <div>
-          <span>Bio: </span>
-          <span>{movie.Director.Bio}</span>
-        </div>
-        <div>
-          <span>Birth: </span>
-          <span>{movie.Director.Birth}</span>
-        </div>
-        <div>
-          <span>Genre: </span>
-          <span>{movie.Genre.Name}</span>
-        </div>
-        <div>
-          <span>Description: </span>
-          <span>{movie.Description}</span>
-        </div>
-        <div>
-        <Button onClick={handleFavorite} className="btn btn-primary mt-3">
-          {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
-        </Button>
-        </div>
-  
-        <div>
-          <Link to={'/'}>
-            <Button style={{ backgroundColor: '#8fc4ca' }} className="back-button">
-              Back
-            </Button>
-          </Link>
-        </div>
+      {movie.Image && (
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <img className="w-50" src={movie.Image} alt={movie.Title} />
+      <div style={{ marginLeft: '20px', fontSize: '1rem' }}>
+      <div style= {{ marginLeft: '30px', marginTop: '20px' }}>
+      <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>Title: </span>
+      <p>{movie.Title}</p>
+      </div>
+      <div style= {{ marginLeft: '30px' }}>
+      <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>Director: </span>
+      <p>{movie.Director.Name}</p>
+      </div>
+      <div style= {{ marginLeft: '30px' }}>
+      <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>Bio: </span>
+      <p>{movie.Director.Bio}</p>
+      </div>
+      <div style= {{ marginLeft: '30px' }}>
+      <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>Birth: </span>
+      <p>{movie.Director.Birth}</p>
+      </div>
+      <div style= {{ marginLeft: '30px' }}>
+      <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>Genre: </span>
+      <p>{movie.Genre.Name}</p>
+      </div>
+      <div style= {{ marginLeft: '30px' }}>
+      <span style={{ fontWeight: 'bold', fontSize: '1rem' }}>Description: </span>
+      <p>{movie.Description}</p>
+      </div>
+      <div>
+      <Button onClick={handleFavorite} className="btn btn-primary mt-3">
+      {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+      </Button>
+      </div>
+      <div>
+      <Link to={'/'}>
+      <Button style={{ backgroundColor: '#018fab', marginTop: '5px' }} className="back-button">
+      Back
+      </Button>
+      </Link>
+      </div>
+      </div>
+      </div>
+      )}
       </div>
     );
   }
