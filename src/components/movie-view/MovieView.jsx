@@ -1,7 +1,6 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import "./../movie-view/Movie-View-Style.scss";
 
 // MovieView component 
 
@@ -81,7 +80,7 @@ export const MovieView = ({ movies, user, token, setUser }) => {
       </div>
       <div>
       <Link to={'/'}>
-      <Button style={{ backgroundColor: '#018fab', marginTop: '5px' }} className="back-button">
+      <Button style={{ backgroundColor: '#018fab', marginTop: '5px', color: 'white' }} className="back-button">
       Back
       </Button>
       </Link>

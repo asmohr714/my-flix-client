@@ -1,6 +1,5 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./../navigation-bar/navigation-bar.scss";
 
 // import { useParams } from "react-router";
 
