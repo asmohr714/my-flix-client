@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
-import "./MovieCard.scss";
-
 // The MovieCard component
 
 
