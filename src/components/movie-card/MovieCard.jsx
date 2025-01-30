@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
+import "./MovieCard.scss";
 
 // The MovieCard component
 
@@ -32,10 +33,10 @@ const MovieCard = ({ movie, user, token, setUser }) => {
     };
 
   return (
-    <Card className="h-100" style={{ border: "2px solid #88c4ca" }}>
+    <Card className="h-100" style={{ border: "2px solid #88c4ca", backgroundColor: "#8fc4ca" }}>
       <Link to={`/movies/${movie._id}`} style={{ textDecoration: "none" }}>
         <Card.Img variant="top" src={movie.Image} />
-        <Card.Body>
+        <Card.Body style={{ backgroundColor: "#36454F" }}>
           <Card.Title> {movie.Title}</Card.Title>
           <Card.Text> {movie.Director.Name}</Card.Text>
         </Card.Body>
