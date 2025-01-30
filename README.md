@@ -1,67 +1,37 @@
-# Getting Started with Create React App
+# My Flix Movie Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to My Flix - a responsive movie app built using MERN stack.  While using this app you can browse movies, manage your favorite movies and change your profile.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+1. **Main View**
 
-### `npm start`
-//
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   - View all movies with their images, titles, and summaries.
+   - Search for specific movies.
+   - Select a movie to see more details.
+   - Log out and navigate to Profile.
+   - Single Movie View
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Single Movie View**
 
-### `npm test`
+   - See details on a selected movie (e.g., genre, director, and description).
+   - Add or remove the movie from your favorites.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Login & Signup**
 
-### `npm run build`
+   - Log in with your username and password.
+   - Register a new account with your username, password, email, and birthdate.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Profile View**
+   - See and edit your profile details.
+   - View your list of favorite movies and remove any movie if desired.
+   - Deregister if you no longer want to use the app.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technical Specs
 
-### `npm run eject`
+- Single-Page App: myFlix is a single-page application (SPA) built with React.
+- Routing: Uses React Router for in-app navigation and URL sharing.
+- Search Functionality: Quickly find movies with an in-app search.
+- Responsive Design: Built with Bootstrap for a mobile-friendly experience.
+- React Redux: For managing app-wide state, such as filtering movies.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

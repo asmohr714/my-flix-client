@@ -26,7 +26,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
               </>
             ) : (
               <>
-                <Nav.Item style={{ flex: 1, marginRight: '30px', color: '#018fab', fontSize: '1.5rem' }}>
+                <Nav.Item style={{ flex: 1, marginRight: '50px', color: '#018fab', fontSize: '1.5rem' }}>
                   <span>Welcome, {user.Username}!</span>
                 </Nav.Item>
                 <Nav.Link style={{ color: '#018fab'}} as={Link} to="/">
