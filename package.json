@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@parcel/transformer-sass": "^2.9.3",
     "@reduxjs/toolkit": "^2.5.1",
     "bootstrap": "^5.2.0",
     "cra-template": "1.2.0",
@@ -40,8 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "parcel-bundler": "^1.12.5"
   }
 }
