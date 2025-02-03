@@ -79,7 +79,7 @@ export const SignupView = () => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" marginTop="10px">;
         Submit
       </Button>
     </Form>

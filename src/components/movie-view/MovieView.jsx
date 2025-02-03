@@ -22,10 +22,10 @@ export const MovieView = ({ movies, user, token, setUser }) => {
   const isFavorite = user?.favoriteMovies?.includes(movieId) || false;
 
   // Function to handle adding/removing favorites
-
+  console.log ("User: ", user);
   const handleFavorite = () => {
     const method = isFavorite ? "DELETE" : "POST";
-    fetch (`https://my-cinema-selector-55c96f84466e.herokuapp.com/users/${user?.Username}/movies/${movie._id}`, {
+   fetch (`https://my-cinema-selector-55c96f84466e.herokuapp.com/users/${user?.Username}/movies/${movie.Title}`, {
       method,
      headers: {
       Authorization: `Bearer ${token}`,
