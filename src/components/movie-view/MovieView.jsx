@@ -19,12 +19,12 @@ export const MovieView = ({ movies, user, token, setUser }) => {
 
   // Check if the movie is a favorite
 
-  const isFavorite = user?.favoriteMovies?.includes(movie.Title) || false;
+  const isFavorite = user?.favoriteMovies?.includes(movieId) || false;
 
   // Function to handle adding/removing favorites
   console.log ("User: ", user);
-  const handleFavorite = () => {
-    const method = isFavorite ? "DELETE" : "POST";
+  const handleAddFavorite = () => {
+    const method = "POST";
    fetch (`https://my-cinema-selector-55c96f84466e.herokuapp.com/users/${user?.Username}/movies/${movie.Title}`, {
       method,
      headers: {
@@ -41,6 +41,25 @@ export const MovieView = ({ movies, user, token, setUser }) => {
       .catch(e => console.error("Error updating favorites: ", e));
 
     };
+
+    const handleDeleteFavorite = () => {
+      const method = "DELETE";
+     fetch (`https://my-cinema-selector-55c96f84466e.herokuapp.com/users/${user?.Username}/movies/${movie.Title}`, {
+        method,
+       headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+        }
+      })
+        .then(response => response.json())
+        .then(updatedUser => {
+        setUser(updatedUser);
+        console.log("Updated favorites: ", user);
+        localStorage.setItem("user", JSON.stringify(updatedUser));
+        })
+        .catch(e => console.error("Error updating favorites: ", e));
+  
+      };
   
     // Movie Details returned from API 
   
@@ -75,8 +94,13 @@ export const MovieView = ({ movies, user, token, setUser }) => {
       <p>{movie.Description}</p>
       </div>
       <div>
-      <Button onClick={handleFavorite} className="btn btn-primary mt-3">
-      {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+      <Button onClick={handleAddFavorite} className="btn btn-primary mt-3">
+      Favorite
+      </Button>
+      </div>
+      <div>
+      <Button onClick={handleDeleteFavorite} className="btn btn-primary mt-3">
+      Unfavorite
       </Button>
       </div>
       <div>
