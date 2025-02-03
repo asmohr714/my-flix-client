@@ -26,7 +26,7 @@ const MainView = () => {
 
     if (!token) return;
 
-    fetch("https://my-cinema-selector-55c96f84466e.herokuapp.com/movies", {
+   fetch("https://my-cinema-selector-55c96f84466e.herokuapp.com/movies", {
       headers: { Authorization: 'Bearer $token' },
     })
     .then((response) => {
