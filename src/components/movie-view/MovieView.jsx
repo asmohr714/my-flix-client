@@ -19,7 +19,7 @@ export const MovieView = ({ movies, user, token, setUser }) => {
 
   // Check if the movie is a favorite
 
-  const isFavorite = user?.favoriteMovies?.includes(movieId) || false;
+  const isFavorite = user?.favoriteMovies?.includes(movie.Title) || false;
 
   // Function to handle adding/removing favorites
   console.log ("User: ", user);
