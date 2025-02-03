@@ -88,7 +88,7 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
                         <Button variant="primary" type="submit" onClick={handleUpdate}>
                             Update
                         </Button>
-                        <Button variant="danger" type="button" onClick={handleDelete} className="ml-2">
+                        <Button variant="danger" type="button" onClick={handleDelete} className="ml-2" style={{ marginLeft: "10px" }}>
                             Delete Account
                         </Button>
                     </div>
