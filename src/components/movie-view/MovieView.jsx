@@ -34,6 +34,7 @@ export const MovieView = ({ movies, user, token, setUser }) => {
     })
       .then(response => response.json())
       .then(updatedUser => {
+      alert(`${movie.Title} has been added to favorites!`);
       setUser(updatedUser);
       console.log("Updated favorites: ", user);
       localStorage.setItem("user", JSON.stringify(updatedUser));
@@ -53,6 +54,7 @@ export const MovieView = ({ movies, user, token, setUser }) => {
       })
         .then(response => response.json())
         .then(updatedUser => {
+        alert(`${movie.Title} has been removed from favorites!`);
         setUser(updatedUser);
         console.log("Updated favorites: ", user);
         localStorage.setItem("user", JSON.stringify(updatedUser));
