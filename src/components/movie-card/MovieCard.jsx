@@ -7,28 +7,28 @@ import { Card } from "react-bootstrap";
 
 
 const MovieCard = ({ movie, user, token, setUser }) => {
-  const [isFavorite] = useState(false);
+  // const [isFavorite] = useState(false);
 
-  // Check if the movie is a favorite
-  console.log ("User: ", user);
-  const toggleFavorite = () => {
-    const method = isFavorite ? "DELETE" : "POST";
-    fetch (`https://my-cinema-selector-55c96f84466e.herokuapp.com/users/${user?.Username}/movies/${movie._id}`, {
-      method,
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json"
-      }
-    })
-    .then(response => response.json())
-    .then(updatedUser => {
-      setUser(updatedUser);
-      console.log("Updated favorites: ", user);
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-    })
-    .catch(e => console.error("Error updating favorites: ", e));
+  // // Check if the movie is a favorite
+  // console.log ("User: ", user);
+  // const toggleFavorite = () => {
+  //   const method = isFavorite ? "DELETE" : "POST";
+  //   fetch (`https://my-cinema-selector-55c96f84466e.herokuapp.com/users/${user?.Username}/movies/${movie._id}`, {
+  //     method,
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //       "Content-Type": "application/json"
+  //     }
+  //   })
+  //   .then(response => response.json())
+  //   .then(updatedUser => {
+  //     setUser(updatedUser);
+  //     console.log("Updated favorites: ", user);
+  //     localStorage.setItem("user", JSON.stringify(updatedUser));
+  //   })
+  //   .catch(e => console.error("Error updating favorites: ", e));
 
-    };
+  //   };
 
   return (
     <Card className="h-100" style={{ border: "2px solid #88c4ca", backgroundColor: "#8fc4ca" }}>
@@ -39,9 +39,9 @@ const MovieCard = ({ movie, user, token, setUser }) => {
           <Card.Text> {movie.Director.Name}</Card.Text>
         </Card.Body>
       </Link>
-      <button onClick={toggleFavorite}>
+      {/* <button onClick={toggleFavorite}>
         {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
-      </button>
+      </button> */}
     </Card>
   );
 };
