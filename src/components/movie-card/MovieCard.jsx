@@ -13,7 +13,7 @@ const MovieCard = ({ movie, user, token, setUser }) => {
   console.log ("User: ", user);
   const toggleFavorite = () => {
     const method = isFavorite ? "DELETE" : "POST";
-    fetch (`https://my-cinema-selector-55c96f84466e.herokuapp.com/users/${user?.Username}/movies/${movie._id}`, {
+    fetch (`https://my-cinema-selector-55c96f84466e.herokuapp.com/users/${user?.Username}/movies/${movie.Title}`, {
       method,
       headers: {
         Authorization: `Bearer ${token}`,
