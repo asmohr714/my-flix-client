@@ -17,7 +17,7 @@ export const SignupView = () => {
             Username: username,
             Password: password,
             Email: email,
-            Birtday: birthday
+            Birthday: birthday
         };
 
         fetch ("https://my-cinema-selector-55c96f84466e.herokuapp.com/users", {
@@ -78,8 +78,8 @@ export const SignupView = () => {
           required
         />
       </Form.Group>
-
-      <Button variant="primary" type="submit" marginTop="10px">;
+      <div style={{ marginBottom: "10px" }}></div>
+      <Button variant="primary" type="submit">
         Submit
       </Button>
     </Form>

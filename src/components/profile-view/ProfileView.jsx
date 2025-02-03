@@ -94,16 +94,18 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
                     </div>
                 </Form>
             </Col>
-            <Col md={6}>
+            <Col md={12}>
                 <h3>Favorite Movies</h3>
                 {favoriteMovies.length === 0 ? (
                     <p>You Have No Favorite Movies</p>
                 ) : (
-                    favoriteMovies.map((movie) => (
-                        <Col md={4} key={movie._id}>
-                        <MovieCard key={movie._id} movie={movie} />
-                        </Col>
-                    ))
+                    <Row>
+                        {favoriteMovies.map((movie) => (
+                            <Col md={4} key={movie._id}>
+                                <MovieCard key={movie._id} movie={movie} />
+                            </Col>
+                        ))}
+                    </Row>
                 )}
             </Col>
         </Row>
